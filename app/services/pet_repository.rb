@@ -1,9 +1,9 @@
 class PetRepository
-  def self.create(attrs)
-    Pet.create!(attrs)
+  def self.create(attributes)
+    Pet.create!(attributes)
   end
 
   def self.out_of_zone_summary
-    Pet.where(in_zone: false).group(:pet_type, :tracker_type).count
+    PetSummaryService.call
   end
 end
